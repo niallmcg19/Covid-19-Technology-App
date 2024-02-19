@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>COVID-19 Survey</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        /* Additional styles for survey page */
+        form {
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 0px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        h1, h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #2ecc71;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 10px;
+            font-size: 16px;
+        }
+
+        select, button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            line-height: 1.6;
+        }
+
+        button {
+            background-color: #2ecc71;
+            color: #ffffff;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #27ae60;
+        }
+    </style>
+</head>
+<body>
+    <h1>COVID-19 Survey</h1>
+    <form id="surveyForm">
+        <!-- Demographic Information -->
+        <h2>Demographic Information:</h2>
+        <label for="gender">Gender:</label>
+        <select id="gender" name="gender">
+            <option value="Male">Male</option>
+            <option value="Female">Female</option>
+            <option value="Non-binary">Non-binary</option>
+            <option value="Prefer not to say">Prefer not to say</option>
+            <option value="Other">Other </option>
+        </select>
+
+        <label for="age">Age:</label>
+        <select id="age" name="age">
+            <option value="Under 18">Under 18</option>
+            <option value="18-24">18-24</option>
+            <option value="25-34">25-34</option>
+            <option value="35-44">35-44</option>
+            <option value="45-54">45-54</option>
+            <option value="55-64">55-64</option>
+            <option value="65 or above">65 or above</option>
+        </select>
+
+        <label for="occupation">Occupation:</label>
+        <select id="occupation" name="occupation">
+            <option value="Student">Student</option>
+            <option value="Employed">Employed</option>
+            <option value="Unemployed">Unemployed</option>
+            <option value="Self-employed">Self-employed</option>
+            <option value="Other">Other </option>
+        </select>
+
+       <!-- Technology Adoption -->
+<h2>Technology Adoption:</h2>
+<label for="technology">Which of the following technologies have you adopted or increased your usage of during the COVID-19 pandemic? (Select all that apply)</label><br>
+<select id="technology" name="technology" multiple>
+    <option value="selectAll">Select All</option>
+    <option value="Video conferencing platforms">Video conferencing platforms (e.g., Zoom, Microsoft Teams)</option>
+    <option value="Messaging apps">Messaging apps (e.g., WhatsApp, Telegram)</option>
+    <option value="Social media platforms">Social media platforms (e.g., Facebook, Twitter, Instagram)</option>
+    <option value="Online collaboration tools">Online collaboration tools (e.g., Google Docs, Microsoft Office Online)</option>
+    <option value="E-learning platforms">E-learning platforms</option>
+    <option value="Telehealth services">Telehealth services</option>
+    <option value="Online shopping platforms">Online shopping platforms</option>
+    <!-- Add more options for other technologies -->
+</select><br>
+
+        <!-- Remote Work and Education -->
+<h2>Remote Work and Education:</h2>
+<label>If applicable, how has technology facilitated your remote work or education experience during the pandemic?</label><br>
+<select id="remoteWorkExperience" name="remoteWorkExperience" multiple>
+    <option value="selectAll">Select All</option>
+    <option value="Significantly improved efficiency and productivity">Significantly improved efficiency and productivity</option>
+    <option value="Allowed for seamless collaboration with colleagues/students">Allowed for seamless collaboration with colleagues/students</option>
+    <option value="Provided access to necessary resources and tools">Provided access to necessary resources and tools</option>
+    <option value="Made it easier to balance work/school and personal life">Made it easier to balance work/school and personal life</option>
+</select><br>
+
+
+        <label>What challenges, if any, have you faced in adapting to remote work or education technologies?</label><br>
+        <select id="challenges" name="challenges">
+            <option value="None">None</option>
+            <option value="Connectivity issues">Connectivity issues</option>
+            <option value="Difficulty in using new tools/software">Difficulty in using new tools/software</option>
+            <option value="Lack of motivation or focus">Lack of motivation or focus</option>
+            <option value="Other">Other </option>
+        </select><br>
+
+        <!-- Digital Health and Telemedicine -->
+        <h2>Digital Health and Telemedicine:</h2>
+        <label>Have you utilized digital health or telemedicine services during the pandemic?</label><br>
+        <select id="healthServices" name="healthServices">
+            <option value="Yes, frequently">Yes, frequently</option>
+            <option value="Yes, occasionally">Yes, occasionally</option>
+            <option value="No, but I would consider it">No, but I would consider it</option>
+            <option value="No, I prefer in-person appointments">No, I prefer in-person appointments</option>
+            <option value="Other">Other </option>
+        </select><br>
+
+        <label>How would you rate your overall experience with digital health or telemedicine services?</label><br>
+        <select id="healthExperience" name="healthExperience">
+            <option value="Very satisfied">Very satisfied</option>
+            <option value="Satisfied">Satisfied</option>
+            <option value="Neutral">Neutral</option>
+            <option value="Dissatisfied">Dissatisfied</option>
+            <option value="Very dissatisfied">Very dissatisfied</option>
+        </select><br>
+
+        <!-- Social Connection and Well-being -->
+        <h2>Social Connection and Well-being:</h2>
+        <label>In what ways has technology helped you stay connected with friends and family during periods of social distancing?</label><br>
+        <select id="socialConnection" name="socialConnection">
+            <option value="Video calls">Video calls</option>
+            <option value="Messaging apps">Messaging apps</option>
+            <option value="Social media platforms">Social media platforms</option>
+            <option value="Online gaming">Online gaming</option>
+            <option value="Other">Other</option>
+        </select><br>
+
+        <label>Have you experienced any negative impacts on your mental health or well-being related to increased technology use during the pandemic?</label><br>
+        <select id="mentalHealth" name="mentalHealth">
+            <option value="Yes">Yes</option>
+            <option value="No">No</option>
+        </select><br>
+
+        <!-- Future Technology Preferences -->
+        <h2>Future Technology Preferences:</h2>
+        <label>Looking ahead, do you anticipate continuing to use the technologies you adopted during the pandemic in your daily life?</label><br>
+        <select id="futureTech" name="futureTech">
+            <option value="Yes, definitely">Yes, definitely</option>
+            <option value="Yes, but to a lesser extent">Yes, but to a lesser extent</option>
+            <option value="No, I plan to revert to my previous habits">No, I plan to revert to my previous habits</option>
+            <option value="Unsure">Unsure</option>
+        </select><br>
+
+        <label>Are there specific areas where you would like to see technological advancements to better address challenges posed by future pandemics or similar crises?</label><br>
+        <select id="techAdvancements" name="techAdvancements">
+            <option value="Healthcare">Healthcare</option>
+            <option value="Education">Education</option>
+            <option value="Communication">Communication</option>
+            <option value="E-commerce">E-commerce</option>
+            <option value="Other">Other </option>
+        </select><br>
+        
+ <button type="submit">Submit Survey</button>
+    </form>
+
+    <script src="{{ url_for('static', filename='survey.js') }}"></script>
+
+  
+</html>
